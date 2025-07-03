@@ -1,0 +1,602 @@
+[
+  {
+    "id": "accra",
+    "name": "accra",
+    "centroid_lat": 5.59033768890433,
+    "centroid_lon": -0.1870966831551662
+  },
+  {
+    "id": "alexandria",
+    "name": "alexandria",
+    "centroid_lat": 31.027101994195558,
+    "centroid_lon": 29.846154485273395
+  },
+  {
+    "id": "algiers",
+    "name": "algiers",
+    "centroid_lat": 36.71932699513313,
+    "centroid_lon": 3.0598728978788623
+  },
+  {
+    "id": "amman",
+    "name": "amman",
+    "centroid_lat": 31.870527304460076,
+    "centroid_lon": 35.93899153600511
+  },
+  {
+    "id": "amsterdam",
+    "name": "amsterdam",
+    "centroid_lat": 52.37164412168454,
+    "centroid_lon": 4.8780789919650145
+  },
+  {
+    "id": "apia",
+    "name": "apia",
+    "centroid_lat": -13.856775320571558,
+    "centroid_lon": -171.76473920987547
+  },
+  {
+    "id": "auckland",
+    "name": "auckland",
+    "centroid_lat": -36.83443760289183,
+    "centroid_lon": 174.74285609694343
+  },
+  {
+    "id": "baghdad",
+    "name": "baghdad",
+    "centroid_lat": 33.331273726969314,
+    "centroid_lon": 44.39165077228481
+  },
+  {
+    "id": "baku",
+    "name": "baku",
+    "centroid_lat": 40.42463407759094,
+    "centroid_lon": 49.95127258525301
+  },
+  {
+    "id": "bangkok",
+    "name": "bangkok",
+    "centroid_lat": 13.774260255111143,
+    "centroid_lon": 100.5950600387515
+  },
+  {
+    "id": "beijing",
+    "name": "beijing",
+    "centroid_lat": 40.02226924006067,
+    "centroid_lon": 116.42771670065363
+  },
+  {
+    "id": "beirut",
+    "name": "beirut",
+    "centroid_lat": 33.88720841182302,
+    "centroid_lon": 35.50302085957544
+  },
+  {
+    "id": "belgrade",
+    "name": "belgrade",
+    "centroid_lat": 44.79986972738548,
+    "centroid_lon": 20.434686236598505
+  },
+  {
+    "id": "berlin",
+    "name": "berlin",
+    "centroid_lat": 52.50313146745592,
+    "centroid_lon": 13.399695386729851
+  },
+  {
+    "id": "bogota",
+    "name": "bogota",
+    "centroid_lat": 4.639821561658881,
+    "centroid_lon": -74.10973174466675
+  },
+  {
+    "id": "boston",
+    "name": "boston",
+    "centroid_lat": 42.31924328502718,
+    "centroid_lon": -71.09140314185179
+  },
+  {
+    "id": "brisbane",
+    "name": "brisbane",
+    "centroid_lat": -27.489124818645713,
+    "centroid_lon": 153.0293242799282
+  },
+  {
+    "id": "brussels",
+    "name": "brussels",
+    "centroid_lat": 50.86504136811215,
+    "centroid_lon": 4.362709087021595
+  },
+  {
+    "id": "bucharest",
+    "name": "bucharest",
+    "centroid_lat": 44.43623433294975,
+    "centroid_lon": 26.093810418193684
+  },
+  {
+    "id": "budapest",
+    "name": "budapest",
+    "centroid_lat": 47.48688980455495,
+    "centroid_lon": 19.10357800363604
+  },
+  {
+    "id": "buenos_aires",
+    "name": "buenos aires",
+    "centroid_lat": -34.61498554925381,
+    "centroid_lon": -58.45300289649293
+  },
+  {
+    "id": "cairo",
+    "name": "cairo",
+    "centroid_lat": 30.039287103614523,
+    "centroid_lon": 31.47583327236192
+  },
+  {
+    "id": "calgary",
+    "name": "calgary",
+    "centroid_lat": 51.03815477524362,
+    "centroid_lon": -114.06605510006149
+  },
+  {
+    "id": "caracas",
+    "name": "caracas",
+    "centroid_lat": 10.469163667427587,
+    "centroid_lon": -66.8801637423322
+  },
+  {
+    "id": "casablanca",
+    "name": "casablanca",
+    "centroid_lat": 33.566644214043954,
+    "centroid_lon": -7.5994238462444645
+  },
+  {
+    "id": "chennai",
+    "name": "chennai",
+    "centroid_lat": 13.02230199174364,
+    "centroid_lon": 80.2265955504018
+  },
+  {
+    "id": "chicago",
+    "name": "chicago",
+    "centroid_lat": 41.84350227196229,
+    "centroid_lon": -87.68101018080804
+  },
+  {
+    "id": "city_of_cape_town",
+    "name": "city of cape town",
+    "centroid_lat": -33.94896780761945,
+    "centroid_lon": 18.590482335625286
+  },
+  {
+    "id": "ciudad_de_tunez",
+    "name": "ciudad de tunez",
+    "centroid_lat": 36.812412754663015,
+    "centroid_lon": 10.187017773649673
+  },
+  {
+    "id": "coimbra",
+    "name": "coimbra",
+    "centroid_lat": 40.20908613199225,
+    "centroid_lon": -8.441066666696681
+  },
+  {
+    "id": "colombo",
+    "name": "colombo",
+    "centroid_lat": 6.916942583641409,
+    "centroid_lon": 79.8662800294471
+  },
+  {
+    "id": "dakar",
+    "name": "dakar",
+    "centroid_lat": 14.727536384717386,
+    "centroid_lon": -17.45798272259321
+  },
+  {
+    "id": "dar_es_salaam",
+    "name": "dar es salaam",
+    "centroid_lat": -6.854266423606955,
+    "centroid_lon": 39.21559163313808
+  },
+  {
+    "id": "delhi",
+    "name": "delhi",
+    "centroid_lat": 28.65118126496806,
+    "centroid_lon": 77.14120849668778
+  },
+  {
+    "id": "dhaka",
+    "name": "dhaka",
+    "centroid_lat": 23.839665281923683,
+    "centroid_lon": 90.31158024661362
+  },
+  {
+    "id": "distrito_de_panama",
+    "name": "distrito de panama",
+    "centroid_lat": 9.076896144839571,
+    "centroid_lon": -79.45532177649582
+  },
+  {
+    "id": "doha",
+    "name": "doha",
+    "centroid_lat": 25.29618227927848,
+    "centroid_lon": 51.518958422088254
+  },
+  {
+    "id": "dubai",
+    "name": "dubai",
+    "centroid_lat": 25.103876459713728,
+    "centroid_lon": 55.313981232674365
+  },
+  {
+    "id": "dublin",
+    "name": "dublin",
+    "centroid_lat": 53.35970595057078,
+    "centroid_lon": -6.258397089147831
+  },
+  {
+    "id": "fortaleza",
+    "name": "fortaleza",
+    "centroid_lat": -3.781510478807481,
+    "centroid_lon": -38.5382779805196
+  },
+  {
+    "id": "guadalajara",
+    "name": "guadalajara",
+    "centroid_lat": 20.672425082414673,
+    "centroid_lon": -103.33818749939611
+  },
+  {
+    "id": "hamburg",
+    "name": "hamburg",
+    "centroid_lat": 53.560847488903455,
+    "centroid_lon": 10.020635354315713
+  },
+  {
+    "id": "ho_chi_minh_city",
+    "name": "ho chi minh city",
+    "centroid_lat": 10.832800088514903,
+    "centroid_lon": 106.63812868975268
+  },
+  {
+    "id": "honiara",
+    "name": "honiara",
+    "centroid_lat": -9.436792682174493,
+    "centroid_lon": 159.96931059005976
+  },
+  {
+    "id": "houston",
+    "name": "houston",
+    "centroid_lat": 29.74244348708495,
+    "centroid_lon": -95.39953217535839
+  },
+  {
+    "id": "istanbul",
+    "name": "istanbul",
+    "centroid_lat": 41.06208113270216,
+    "centroid_lon": 28.90245218021188
+  },
+  {
+    "id": "jakarta",
+    "name": "jakarta",
+    "centroid_lat": -6.211660985968656,
+    "centroid_lon": 106.83720549438905
+  },
+  {
+    "id": "kampala",
+    "name": "kampala",
+    "centroid_lat": 0.3221416231822931,
+    "centroid_lon": 32.58925602334783
+  },
+  {
+    "id": "karachi",
+    "name": "karachi",
+    "centroid_lat": 24.938255327604043,
+    "centroid_lon": 67.13005540092054
+  },
+  {
+    "id": "kigali",
+    "name": "kigali",
+    "centroid_lat": -1.945513008749044,
+    "centroid_lon": 30.121447127547228
+  },
+  {
+    "id": "kuala_lumpur",
+    "name": "kuala lumpur",
+    "centroid_lat": 3.1446951688003892,
+    "centroid_lon": 101.69220659664063
+  },
+  {
+    "id": "kyiv",
+    "name": "kyiv",
+    "centroid_lat": 50.439306166885515,
+    "centroid_lon": 30.521939565088655
+  },
+  {
+    "id": "la_paz",
+    "name": "la paz",
+    "centroid_lat": -16.492629161384578,
+    "centroid_lon": -68.10087821429458
+  },
+  {
+    "id": "lagos",
+    "name": "lagos",
+    "centroid_lat": 6.551010545636631,
+    "centroid_lon": 3.443426348210345
+  },
+  {
+    "id": "london",
+    "name": "london",
+    "centroid_lat": 51.503653165112105,
+    "centroid_lon": -0.11609987259075641
+  },
+  {
+    "id": "los_angeles",
+    "name": "los angeles",
+    "centroid_lat": 34.12150464057833,
+    "centroid_lon": -118.39548393226991
+  },
+  {
+    "id": "lusaka",
+    "name": "lusaka",
+    "centroid_lat": -15.432326439268413,
+    "centroid_lon": 28.434336564697325
+  },
+  {
+    "id": "madrid",
+    "name": "madrid",
+    "centroid_lat": 40.42774106562463,
+    "centroid_lon": -3.6728791220120676
+  },
+  {
+    "id": "manila",
+    "name": "manila",
+    "centroid_lat": 14.599918158794289,
+    "centroid_lon": 120.98830072210824
+  },
+  {
+    "id": "medellin",
+    "name": "medellin",
+    "centroid_lat": 6.2516885379104625,
+    "centroid_lon": -75.58729015387773
+  },
+  {
+    "id": "melbourne",
+    "name": "melbourne",
+    "centroid_lat": -37.87292741050473,
+    "centroid_lon": 145.0818949832146
+  },
+  {
+    "id": "mexico_city",
+    "name": "mexico city",
+    "centroid_lat": 19.35377448598408,
+    "centroid_lon": -99.13019561282694
+  },
+  {
+    "id": "miami",
+    "name": "miami",
+    "centroid_lat": 25.78423901351998,
+    "centroid_lon": -80.22347296726916
+  },
+  {
+    "id": "monterrey",
+    "name": "monterrey",
+    "centroid_lat": 25.6887812278421,
+    "centroid_lon": -100.33006566518971
+  },
+  {
+    "id": "montevideo",
+    "name": "montevideo",
+    "centroid_lat": -34.84625157166487,
+    "centroid_lon": -56.18405187942413
+  },
+  {
+    "id": "montreal",
+    "name": "montreal",
+    "centroid_lat": 45.535324278262486,
+    "centroid_lon": -73.62928872765508
+  },
+  {
+    "id": "moscow",
+    "name": "moscow",
+    "centroid_lat": 55.65220107958496,
+    "centroid_lon": 37.50153172647351
+  },
+  {
+    "id": "mumbai",
+    "name": "mumbai",
+    "centroid_lat": 19.13397561464926,
+    "centroid_lon": 72.87060273222899
+  },
+  {
+    "id": "municipio_de_sao_paulo",
+    "name": "municipio de sao paulo",
+    "centroid_lat": -23.583387086837767,
+    "centroid_lon": -46.620453634331284
+  },
+  {
+    "id": "nairobi",
+    "name": "nairobi",
+    "centroid_lat": -1.273834188880792,
+    "centroid_lon": 36.870284265679366
+  },
+  {
+    "id": "national_capital_district",
+    "name": "national capital district",
+    "centroid_lat": -9.437420160191603,
+    "centroid_lon": 147.20634652311543
+  },
+  {
+    "id": "new_york",
+    "name": "new york",
+    "centroid_lat": 40.70498183630468,
+    "centroid_lon": -73.91918034363948
+  },
+  {
+    "id": "nukualofa",
+    "name": "nukualofa",
+    "centroid_lat": -21.14374090912955,
+    "centroid_lon": -175.20298847441123
+  },
+  {
+    "id": "oslo",
+    "name": "oslo",
+    "centroid_lat": 59.935218752272704,
+    "centroid_lon": 10.765458492835492
+  },
+  {
+    "id": "paris",
+    "name": "paris",
+    "centroid_lat": 48.85946547243053,
+    "centroid_lon": 2.335997742944287
+  },
+  {
+    "id": "perth",
+    "name": "perth",
+    "centroid_lat": -31.956633870770226,
+    "centroid_lon": 115.85230913211903
+  },
+  {
+    "id": "prague",
+    "name": "prague",
+    "centroid_lat": 50.068482697677055,
+    "centroid_lon": 14.455372197536942
+  },
+  {
+    "id": "provincia_de_lima",
+    "name": "provincia de lima",
+    "centroid_lat": -12.033062248819906,
+    "centroid_lon": -76.97893162438567
+  },
+  {
+    "id": "quito",
+    "name": "quito",
+    "centroid_lat": -0.16264820232690577,
+    "centroid_lon": -78.47440963880642
+  },
+  {
+    "id": "reykjavik",
+    "name": "reykjavik",
+    "centroid_lat": 64.12900321297252,
+    "centroid_lon": -21.843628529151466
+  },
+  {
+    "id": "riyadh_governorate",
+    "name": "riyadh governorate",
+    "centroid_lat": 24.68348510263203,
+    "centroid_lon": 46.72584321873207
+  },
+  {
+    "id": "rome",
+    "name": "rome",
+    "centroid_lat": 41.879216971443604,
+    "centroid_lon": 12.48218855231285
+  },
+  {
+    "id": "san_francisco",
+    "name": "san francisco",
+    "centroid_lat": 37.75705130236773,
+    "centroid_lon": -122.43834371588514
+  },
+  {
+    "id": "san_jose",
+    "name": "san jose",
+    "centroid_lat": 9.834082143402666,
+    "centroid_lon": -84.15679836932067
+  },
+  {
+    "id": "santiago",
+    "name": "santiago",
+    "centroid_lat": -33.45261070496572,
+    "centroid_lon": -70.65565640031207
+  },
+  {
+    "id": "shanghai",
+    "name": "shanghai",
+    "centroid_lat": 31.17607330811885,
+    "centroid_lon": 121.44960300891883
+  },
+  {
+    "id": "singapore",
+    "name": "singapore",
+    "centroid_lat": 1.347153433818343,
+    "centroid_lon": 103.82432512748787
+  },
+  {
+    "id": "sofia",
+    "name": "sofia",
+    "centroid_lat": 42.6864565118755,
+    "centroid_lon": 23.32558711575517
+  },
+  {
+    "id": "suva",
+    "name": "suva",
+    "centroid_lat": -18.132327303122015,
+    "centroid_lon": 178.4426503365718
+  },
+  {
+    "id": "sydney",
+    "name": "sydney",
+    "centroid_lat": -33.83035551008907,
+    "centroid_lon": 150.96536822363674
+  },
+  {
+    "id": "tashkent",
+    "name": "tashkent",
+    "centroid_lat": 41.28883347405732,
+    "centroid_lon": 69.28602118649452
+  },
+  {
+    "id": "tehran",
+    "name": "tehran",
+    "centroid_lat": 35.711819829500485,
+    "centroid_lon": 51.394959310543044
+  },
+  {
+    "id": "tokyo",
+    "name": "tokyo",
+    "centroid_lat": 35.69255588601111,
+    "centroid_lon": 139.58458103577237
+  },
+  {
+    "id": "toronto",
+    "name": "toronto",
+    "centroid_lat": 43.7207017824152,
+    "centroid_lon": -79.39671688003881
+  },
+  {
+    "id": "vancouver",
+    "name": "vancouver",
+    "centroid_lat": 49.24960183827295,
+    "centroid_lon": -123.10605512647837
+  },
+  {
+    "id": "vienna",
+    "name": "vienna",
+    "centroid_lat": 48.20866715342111,
+    "centroid_lon": 16.371776285600735
+  },
+  {
+    "id": "warsaw",
+    "name": "warsaw",
+    "centroid_lat": 52.227813198143906,
+    "centroid_lon": 21.04058251528277
+  },
+  {
+    "id": "wellington_city",
+    "name": "wellington city",
+    "centroid_lat": -41.26721147495247,
+    "centroid_lon": 174.788720068279
+  },
+  {
+    "id": "yangon",
+    "name": "yangon",
+    "centroid_lat": 16.888725109450743,
+    "centroid_lon": 96.15856824214902
+  },
+  {
+    "id": "zurich",
+    "name": "zurich",
+    "centroid_lat": 47.384145679294285,
+    "centroid_lon": 8.531342204747741
+  }
+]

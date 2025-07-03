@@ -3,4 +3,3 @@
 *.csv
 *.sh
 /data/geojson_by_city
-data/city_overview.json
