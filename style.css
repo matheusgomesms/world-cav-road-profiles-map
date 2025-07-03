@@ -33,3 +33,33 @@ html, body {
     font-size: 1.2em;
     margin-right: 20px;
 }
+
+/* Style the popup that appears on hover */
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    border-radius: 4px;
+}
+
+/* style.css */
+
+.city-hover-popup .mapboxgl-popup-content {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark, slightly transparent background */
+    color: #fff; /* White text */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Hide the little triangle tip of the popup */
+.city-hover-popup .mapboxgl-popup-tip {
+    display: none;
+}
