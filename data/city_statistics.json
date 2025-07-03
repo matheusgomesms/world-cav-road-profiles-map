@@ -1,0 +1,702 @@
+{
+  "accra": {
+    "A": 1.1,
+    "B": 1.05,
+    "C": 0.38,
+    "D": 97.47,
+    "Income Level": "Low"
+  },
+  "alexandria": {
+    "A": 0,
+    "B": 0.13,
+    "C": 0,
+    "D": 99.87,
+    "Income Level": "Middle"
+  },
+  "algiers": {
+    "A": 0,
+    "B": 0.18,
+    "C": 0.3,
+    "D": 99.53,
+    "Income Level": "Middle"
+  },
+  "amman": {
+    "A": 0.72,
+    "B": 0.33,
+    "C": 0.17,
+    "D": 98.78,
+    "Income Level": "Middle"
+  },
+  "amsterdam": {
+    "A": 0,
+    "B": 10.51,
+    "C": 6.76,
+    "D": 82.72,
+    "Income Level": "High"
+  },
+  "apia": {
+    "A": 1.6,
+    "B": 4,
+    "C": 0,
+    "D": 94.4,
+    "Income Level": "Middle"
+  },
+  "auckland": {
+    "A": 9.82,
+    "B": 3.63,
+    "C": 16.82,
+    "D": 69.74,
+    "Income Level": "High"
+  },
+  "baghdad": {
+    "A": 0,
+    "B": 0.05,
+    "C": 0.05,
+    "D": 99.9,
+    "Income Level": "Low"
+  },
+  "baku": {
+    "A": 0.06,
+    "B": 1.27,
+    "C": 1.67,
+    "D": 97,
+    "Income Level": "Middle"
+  },
+  "bangkok": {
+    "A": 4.22,
+    "B": 0.61,
+    "C": 0.53,
+    "D": 94.65,
+    "Income Level": "Middle"
+  },
+  "beijing": {
+    "A": 0,
+    "B": 7.31,
+    "C": 0.84,
+    "D": 91.85,
+    "Income Level": "High"
+  },
+  "beirut": {
+    "A": 0,
+    "B": 4.6,
+    "C": 2.8,
+    "D": 92.6,
+    "Income Level": "Middle"
+  },
+  "belgrade": {
+    "A": 17.32,
+    "B": 6.28,
+    "C": 17.61,
+    "D": 58.79,
+    "Income Level": "Middle"
+  },
+  "berlin": {
+    "A": 37.18,
+    "B": 2.88,
+    "C": 30.92,
+    "D": 29.02,
+    "Income Level": "High"
+  },
+  "bogota": {
+    "A": 4.8,
+    "B": 8.42,
+    "C": 13.55,
+    "D": 73.24,
+    "Income Level": "Middle"
+  },
+  "boston": {
+    "A": 2.73,
+    "B": 17.94,
+    "C": 28.34,
+    "D": 50.99,
+    "Income Level": "High"
+  },
+  "brisbane": {
+    "A": 0.09,
+    "B": 7.06,
+    "C": 22.89,
+    "D": 69.96,
+    "Income Level": "High"
+  },
+  "brussels": {
+    "A": 35.17,
+    "B": 7.03,
+    "C": 43.44,
+    "D": 14.37,
+    "Income Level": "High"
+  },
+  "bucharest": {
+    "A": 14.2,
+    "B": 4.58,
+    "C": 24.16,
+    "D": 57.06,
+    "Income Level": "Middle"
+  },
+  "budapest": {
+    "A": 0,
+    "B": 10.75,
+    "C": 4.4,
+    "D": 84.85,
+    "Income Level": "High"
+  },
+  "buenos aires": {
+    "A": 4.24,
+    "B": 38.71,
+    "C": 2.27,
+    "D": 54.79,
+    "Income Level": "High"
+  },
+  "cairo": {
+    "A": 0.24,
+    "B": 0.01,
+    "C": 0.03,
+    "D": 99.72,
+    "Income Level": "Middle"
+  },
+  "calgary": {
+    "A": 4.33,
+    "B": 8.55,
+    "C": 20.49,
+    "D": 66.63,
+    "Income Level": "High"
+  },
+  "city of cape town": {
+    "A": 1.42,
+    "B": 7.09,
+    "C": 5.7,
+    "D": 85.79,
+    "Income Level": "Middle"
+  },
+  "caracas": {
+    "A": 0.02,
+    "B": 7.62,
+    "C": 5.88,
+    "D": 86.47,
+    "Income Level": "Middle"
+  },
+  "casablanca": {
+    "A": 0.64,
+    "B": 3.37,
+    "C": 4.57,
+    "D": 91.42,
+    "Income Level": "Middle"
+  },
+  "chennai": {
+    "A": 0.03,
+    "B": 2.22,
+    "C": 0.26,
+    "D": 97.5,
+    "Income Level": "Middle"
+  },
+  "chicago": {
+    "A": 1.55,
+    "B": 14.92,
+    "C": 56.91,
+    "D": 26.62,
+    "Income Level": "High"
+  },
+  "coimbra": {
+    "A": 8.13,
+    "B": 1.75,
+    "C": 10.26,
+    "D": 79.86,
+    "Income Level": "High"
+  },
+  "colombo": {
+    "A": 0.21,
+    "B": 4.87,
+    "C": 5.54,
+    "D": 89.38,
+    "Income Level": "Middle"
+  },
+  "dakar": {
+    "A": 0.52,
+    "B": 0.29,
+    "C": 0.37,
+    "D": 98.82,
+    "Income Level": "Low"
+  },
+  "dar es salaam": {
+    "A": 0.17,
+    "B": 0.18,
+    "C": 0.07,
+    "D": 99.58,
+    "Income Level": "Low"
+  },
+  "delhi": {
+    "A": 0,
+    "B": 1.13,
+    "C": 0.48,
+    "D": 98.39,
+    "Income Level": "Middle"
+  },
+  "dhaka": {
+    "A": 0,
+    "B": 0.1,
+    "C": 0.1,
+    "D": 99.81,
+    "Income Level": "Low"
+  },
+  "doha": {
+    "A": 0,
+    "B": 3.17,
+    "C": 1.46,
+    "D": 95.37,
+    "Income Level": "High"
+  },
+  "dubai": {
+    "A": 10.5,
+    "B": 2.14,
+    "C": 2.71,
+    "D": 84.65,
+    "Income Level": "High"
+  },
+  "dublin": {
+    "A": 5.41,
+    "B": 13.9,
+    "C": 9.74,
+    "D": 70.95,
+    "Income Level": "High"
+  },
+  "fortaleza": {
+    "A": 2.37,
+    "B": 7.26,
+    "C": 8.87,
+    "D": 81.49,
+    "Income Level": "Middle"
+  },
+  "guadalajara": {
+    "A": 3.51,
+    "B": 7.61,
+    "C": 2.61,
+    "D": 86.27,
+    "Income Level": "Middle"
+  },
+  "hamburg": {
+    "A": 18.4,
+    "B": 9.23,
+    "C": 13.69,
+    "D": 58.67,
+    "Income Level": "High"
+  },
+  "ho chi minh city": {
+    "A": 1.92,
+    "B": 2.82,
+    "C": 4.15,
+    "D": 91.11,
+    "Income Level": "Middle"
+  },
+  "honiara": {
+    "A": 0.16,
+    "B": 0,
+    "C": 0,
+    "D": 99.84,
+    "Income Level": "Low"
+  },
+  "houston": {
+    "A": 3.58,
+    "B": 9.22,
+    "C": 4.29,
+    "D": 82.9,
+    "Income Level": "High"
+  },
+  "istanbul": {
+    "A": 4.22,
+    "B": 1.16,
+    "C": 1.08,
+    "D": 93.54,
+    "Income Level": "Middle"
+  },
+  "jakarta": {
+    "A": 6.64,
+    "B": 0.64,
+    "C": 1.54,
+    "D": 91.18,
+    "Income Level": "Middle"
+  },
+  "kampala": {
+    "A": 0.13,
+    "B": 0.38,
+    "C": 0.08,
+    "D": 99.41,
+    "Income Level": "Low"
+  },
+  "karachi": {
+    "A": 0.09,
+    "B": 0.23,
+    "C": 0.02,
+    "D": 99.66,
+    "Income Level": "Middle"
+  },
+  "kigali": {
+    "A": 0.01,
+    "B": 0.05,
+    "C": 0.03,
+    "D": 99.9,
+    "Income Level": "Low"
+  },
+  "kuala lumpur": {
+    "A": 22.88,
+    "B": 5.07,
+    "C": 2.31,
+    "D": 69.73,
+    "Income Level": "High"
+  },
+  "kyiv": {
+    "A": 53.34,
+    "B": 2.05,
+    "C": 2.95,
+    "D": 41.66,
+    "Income Level": "Middle"
+  },
+  "la paz": {
+    "A": 0.6,
+    "B": 2.2,
+    "C": 2.42,
+    "D": 94.79,
+    "Income Level": "Middle"
+  },
+  "lagos": {
+    "A": 0.04,
+    "B": 0.35,
+    "C": 0.05,
+    "D": 99.56,
+    "Income Level": "Middle"
+  },
+  "provincia de lima": {
+    "A": 1.37,
+    "B": 3.51,
+    "C": 1.44,
+    "D": 93.68,
+    "Income Level": "Middle"
+  },
+  "london": {
+    "A": 1.64,
+    "B": 6.39,
+    "C": 15.66,
+    "D": 76.32,
+    "Income Level": "High"
+  },
+  "los angeles": {
+    "A": 0.62,
+    "B": 21.47,
+    "C": 7.67,
+    "D": 70.23,
+    "Income Level": "High"
+  },
+  "lusaka": {
+    "A": 0.02,
+    "B": 0.45,
+    "C": 0.07,
+    "D": 99.46,
+    "Income Level": "Low"
+  },
+  "madrid": {
+    "A": 5.52,
+    "B": 12.06,
+    "C": 28.47,
+    "D": 53.95,
+    "Income Level": "High"
+  },
+  "manila": {
+    "A": 4.96,
+    "B": 11.84,
+    "C": 4.4,
+    "D": 78.8,
+    "Income Level": "Middle"
+  },
+  "medellin": {
+    "A": 4.84,
+    "B": 7.86,
+    "C": 5.75,
+    "D": 81.54,
+    "Income Level": "Middle"
+  },
+  "melbourne": {
+    "A": 5.64,
+    "B": 3.28,
+    "C": 24.82,
+    "D": 66.25,
+    "Income Level": "High"
+  },
+  "mexico city": {
+    "A": 6.7,
+    "B": 5.65,
+    "C": 1.21,
+    "D": 86.45,
+    "Income Level": "Middle"
+  },
+  "miami": {
+    "A": 1.11,
+    "B": 15.16,
+    "C": 20.66,
+    "D": 63.07,
+    "Income Level": "High"
+  },
+  "monterrey": {
+    "A": 4.38,
+    "B": 2.2,
+    "C": 0.72,
+    "D": 92.7,
+    "Income Level": "Middle"
+  },
+  "montevideo": {
+    "A": 1.41,
+    "B": 9.64,
+    "C": 0.51,
+    "D": 88.44,
+    "Income Level": "High"
+  },
+  "montreal": {
+    "A": 12.6,
+    "B": 10.27,
+    "C": 42.16,
+    "D": 34.96,
+    "Income Level": "High"
+  },
+  "moscow": {
+    "A": 61.93,
+    "B": 3.04,
+    "C": 4,
+    "D": 31.03,
+    "Income Level": "High"
+  },
+  "mumbai": {
+    "A": 0.22,
+    "B": 10.83,
+    "C": 0.1,
+    "D": 88.85,
+    "Income Level": "Middle"
+  },
+  "nairobi": {
+    "A": 0.23,
+    "B": 0.06,
+    "C": 0.13,
+    "D": 99.58,
+    "Income Level": "Low"
+  },
+  "new york": {
+    "A": 1.28,
+    "B": 37.88,
+    "C": 25.06,
+    "D": 35.78,
+    "Income Level": "High"
+  },
+  "nukualofa": {
+    "A": 0,
+    "B": 0,
+    "C": 0.09,
+    "D": 99.91,
+    "Income Level": "Middle"
+  },
+  "oslo": {
+    "A": 0.67,
+    "B": 5.7,
+    "C": 24.76,
+    "D": 68.87,
+    "Income Level": "High"
+  },
+  "distrito de panama": {
+    "A": 5.14,
+    "B": 2.09,
+    "C": 1.27,
+    "D": 91.5,
+    "Income Level": "Middle"
+  },
+  "paris": {
+    "A": 14.34,
+    "B": 18.7,
+    "C": 56.39,
+    "D": 10.56,
+    "Income Level": "High"
+  },
+  "perth": {
+    "A": 0.2,
+    "B": 25.5,
+    "C": 25.46,
+    "D": 48.84,
+    "Income Level": "High"
+  },
+  "national capital district": {
+    "A": 1.96,
+    "B": 0.01,
+    "C": 0,
+    "D": 98.02,
+    "Income Level": "Low"
+  },
+  "prague": {
+    "A": 9.42,
+    "B": 6.06,
+    "C": 18.07,
+    "D": 66.44,
+    "Income Level": "High"
+  },
+  "quito": {
+    "A": 3.32,
+    "B": 3.64,
+    "C": 2.57,
+    "D": 90.46,
+    "Income Level": "Middle"
+  },
+  "reykjavik": {
+    "A": 0.57,
+    "B": 6.08,
+    "C": 42.93,
+    "D": 50.42,
+    "Income Level": "High"
+  },
+  "riyadh governorate": {
+    "A": 0.64,
+    "B": 0.45,
+    "C": 0.44,
+    "D": 98.47,
+    "Income Level": "High"
+  },
+  "rome": {
+    "A": 0.79,
+    "B": 3.89,
+    "C": 10.55,
+    "D": 84.76,
+    "Income Level": "High"
+  },
+  "san francisco": {
+    "A": 5.32,
+    "B": 22.45,
+    "C": 33.27,
+    "D": 38.96,
+    "Income Level": "High"
+  },
+  "san jose": {
+    "A": 0.04,
+    "B": 2.26,
+    "C": 0.1,
+    "D": 97.59,
+    "Income Level": "Middle"
+  },
+  "santiago": {
+    "A": 1.23,
+    "B": 35.53,
+    "C": 16.66,
+    "D": 46.58,
+    "Income Level": "High"
+  },
+  "municipio de sao paulo": {
+    "A": 8.5,
+    "B": 6.36,
+    "C": 4.09,
+    "D": 81.04,
+    "Income Level": "Middle"
+  },
+  "shanghai": {
+    "A": 0.02,
+    "B": 10.21,
+    "C": 0.49,
+    "D": 89.28,
+    "Income Level": "High"
+  },
+  "singapore": {
+    "A": 12.19,
+    "B": 21.15,
+    "C": 5.63,
+    "D": 61.04,
+    "Income Level": "High"
+  },
+  "sofia": {
+    "A": 8.67,
+    "B": 6.04,
+    "C": 9.55,
+    "D": 75.74,
+    "Income Level": "Middle"
+  },
+  "suva": {
+    "A": 1.53,
+    "B": 1.51,
+    "C": 0.71,
+    "D": 96.25,
+    "Income Level": "Middle"
+  },
+  "sydney": {
+    "A": 3.27,
+    "B": 7.08,
+    "C": 24.28,
+    "D": 65.37,
+    "Income Level": "High"
+  },
+  "tashkent": {
+    "A": 0.21,
+    "B": 7.43,
+    "C": 3.21,
+    "D": 89.15,
+    "Income Level": "Middle"
+  },
+  "tehran": {
+    "A": 1.06,
+    "B": 0.91,
+    "C": 1.22,
+    "D": 96.82,
+    "Income Level": "Middle"
+  },
+  "tokyo": {
+    "A": 5.74,
+    "B": 14.98,
+    "C": 4.77,
+    "D": 74.52,
+    "Income Level": "High"
+  },
+  "toronto": {
+    "A": 0.9,
+    "B": 19.14,
+    "C": 28.94,
+    "D": 51.03,
+    "Income Level": "High"
+  },
+  "ciudad de tunez": {
+    "A": 0.58,
+    "B": 0.38,
+    "C": 0.41,
+    "D": 98.63,
+    "Income Level": "Middle"
+  },
+  "vancouver": {
+    "A": 0,
+    "B": 13.43,
+    "C": 73.19,
+    "D": 13.38,
+    "Income Level": "High"
+  },
+  "vienna": {
+    "A": 21.31,
+    "B": 8.59,
+    "C": 13.89,
+    "D": 56.2,
+    "Income Level": "High"
+  },
+  "warsaw": {
+    "A": 27.88,
+    "B": 3.16,
+    "C": 24.86,
+    "D": 44.1,
+    "Income Level": "High"
+  },
+  "wellington city": {
+    "A": 2.39,
+    "B": 4.91,
+    "C": 4.06,
+    "D": 88.64,
+    "Income Level": "High"
+  },
+  "yangon": {
+    "A": 0.04,
+    "B": 1.54,
+    "C": 0.05,
+    "D": 98.37,
+    "Income Level": "Low"
+  },
+  "zurich": {
+    "A": 18.77,
+    "B": 11.56,
+    "C": 51.15,
+    "D": 18.52,
+    "Income Level": "High"
+  }
+}

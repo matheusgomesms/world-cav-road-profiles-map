@@ -10,195 +10,159 @@ document.addEventListener('DOMContentLoaded', function() {
     const map = new maplibregl.Map({
         container: 'map',
         style: 'https://tiles.openfreemap.org/styles/positron', 
-        center: [0, 20],
+        center: [0, 20], // Start centered on Europe/Africa
         zoom: 1
     });
     
-    map.addControl(new maplibregl.NavigationControl());
+    map.addControl(new maplibregl.NavigationControl(), 'top-left');
 
-    // This variable will be populated with city data once fetched
+    // Global variables to hold our fetched data
     let allCitiesData = [];
+    let allCityStats = {};
 
-    // --- The complete and corrected function to load a city's data ---
-    function loadCity(cityId) {
-        const clusterInfo = {
-            0: { letter: 'A', color: '#1a9641' },
-            1: { letter: 'B', color: '#a6d96a' },
-            3: { letter: 'C', color: '#fdae61' },
-            2: { letter: 'D', color: '#d7191c' },
-        };
-        const highwayNames = {
-            'residential': 'Residential',
-            'tertiary': 'Tertiary',
-            'secondary': 'Secondary',
-            'unclassified': 'Unclassified',
-            'primary': 'Primary',
-            'living_street': 'Living Street',
-            'trunk': 'Trunk'
-        };
-        const defaultStyle = { color: '#cccccc' };
+    // ==========================================================
+    //  THE CENTRAL FUNCTION TO LOAD AND DISPLAY A CITY
+    // ==========================================================
+    // In script.js, replace the whole loadCity function
 
-        const lineColorExpression = ['match', ['get', 'cluster']];
-        for (const [clusterId, style] of Object.entries(clusterInfo)) {
-            lineColorExpression.push(parseInt(clusterId), style.color);
-        }
-        lineColorExpression.push(defaultStyle.color);
+function loadCity(cityId) {
+    const metricsPanel = document.getElementById('metrics-panel');
+    const clusterColors = { A: '#1a9641', B: '#a6d96a', C: '#fdae61', D: '#d7191c' };
 
-        if (!cityId) {
-            if (map.getLayer('segments-layer')) map.removeLayer('segments-layer');
-            if (map.getSource('segments-source')) map.removeSource('segments-source');
-            return;
-        }
-
-        const selectedCity = allCitiesData.find(c => c.id === cityId);
-        if (!selectedCity) return;
-
-        map.flyTo({
-            center: [selectedCity.centroid_lon, selectedCity.centroid_lat],
-            zoom: 12
-        });
-
+    if (!cityId) {
         if (map.getLayer('segments-layer')) map.removeLayer('segments-layer');
         if (map.getSource('segments-source')) map.removeSource('segments-source');
-        
-        const pmtilesUrl = `./data/pmtiles_by_city/${cityId}.pmtiles`;
-        map.addSource('segments-source', {
-            type: 'vector',
-            url: `pmtiles://${pmtilesUrl}`,
-            attribution: 'Street data © OpenStreetMap contributors'
-        });
-
-        map.addLayer({
-            'id': 'segments-layer',
-            'type': 'line',
-            'source': 'segments-source',
-            'source-layer': 'segments',
-            'paint': {
-                'line-color': lineColorExpression,
-                'line-width': 3.5, // Your requested width
-                'line-opacity': 0.9
-            }
-        });
-
-        const segmentPopup = new maplibregl.Popup({
-            closeButton: true, className: 'segment-popup'
-        });
-
-        function createPopupContent(properties) {
-            const clusterNumber = properties.cluster;
-            const clusterDisplay = clusterInfo[clusterNumber] ? `${clusterInfo[clusterNumber].letter}` : `${clusterNumber}`;
-            const highwayType = properties.highway;
-            const highwayDisplay = highwayNames[highwayType] || highwayType || 'N/A';
-            
-            return `
-                <div style="font-weight: bold; margin-bottom: 5px;">Segment Details</div>
-                <table class="popup-table">
-                    <tr><td><strong>Cluster:</strong></td><td>${clusterDisplay}</td></tr>
-                    <tr><td><strong>Road Classification:</strong></td><td>${highwayDisplay}</td></tr>
-                    <tr><td><strong>Number of Lanes:</strong></td><td>${properties.lanes || 'N/A'}</td></tr>
-                    <tr><td><strong>Speed Limit:</strong></td><td>${properties.maxspeed || 'N/A'}</td></tr>
-                    <tr><td><strong>Special Lane Presence:</strong></td><td>${properties.HasSpecialLane ? 'Yes' : 'No'}</td></tr>
-                    <tr><td><strong>Traffic Lights:</strong></td><td>${properties.highway_traffic_signals_count}</td></tr>
-                    <tr><td><strong>Traffic Signs:</strong></td><td>${properties.traffic_sign_count}</td></tr>
-                    <tr><td><strong>Crossings:</strong></td><td>${properties.TotalCrossingCount}</td></tr>
-                </table>
-            `;
-        }
-
-        map.on('mousemove', 'segments-layer', (e) => {
-            if ('ontouchstart' in window) return;
-            map.getCanvas().style.cursor = 'pointer';
-            const content = createPopupContent(e.features[0].properties);
-            segmentPopup.setLngLat(e.lngLat).setHTML(content).addTo(map);
-        });
-
-        map.on('mouseleave', 'segments-layer', () => {
-            if ('ontouchstart' in window) return;
-            map.getCanvas().style.cursor = '';
-            segmentPopup.remove();
-        });
-
-        map.on('click', 'segments-layer', (e) => {
-            const content = createPopupContent(e.features[0].properties);
-            segmentPopup.setLngLat(e.lngLat).setHTML(content).addTo(map);
-        });
+        metricsPanel.classList.remove('visible');
+        return;
     }
 
+    const cityInfo = allCitiesData.find(c => c.id === cityId);
+    const cityStats = allCityStats[cityId];
+    if (!cityInfo || !cityStats) {
+        console.error(`Data not found for city: ${cityId}`);
+        return;
+    }
+
+    // --- Update and Show Metrics Panel ---
+    document.getElementById('metrics-city-name').textContent = cityInfo.name;
+    document.getElementById('income-level-value').textContent = cityStats['Income Level'] || 'N/A';
+
+    // Update Bar Charts
+    const barContainer = document.getElementById('bar-chart-container');
+    barContainer.innerHTML = ''; // Clear previous content
+    
+    ['A', 'B', 'C', 'D'].forEach(cluster => {
+        const percent = parseFloat(cityStats[cluster]) || 0;
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'bar-chart-item';
+        
+        itemDiv.innerHTML = `
+            <div class="label-line">
+                <span class="label">Cluster ${cluster}</span>
+                <span class="value">${percent.toFixed(2)}%</span>
+            </div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width: ${percent}%; background-color: ${clusterColors[cluster]};"></div>
+            </div>
+        `;
+        barContainer.appendChild(itemDiv);
+    });
+
+    metricsPanel.classList.add('visible');
+
+    // --- Load Map Layers ---
+    map.flyTo({ center: [cityInfo.centroid_lon, cityInfo.centroid_lat], zoom: 12 });
+    if (map.getLayer('segments-layer')) map.removeLayer('segments-layer');
+    if (map.getSource('segments-source')) map.removeSource('segments-source');
+    
+    const pmtilesUrl = `./data/pmtiles_by_city/${cityId}.pmtiles`;
+    map.addSource('segments-source', { type: 'vector', url: `pmtiles://${pmtilesUrl}` });
+    
+    const lineColorExpression = ['match', ['get', 'cluster'], 0, clusterColors.A, 1, clusterColors.B, 3, clusterColors.C, 2, clusterColors.D, '#cccccc'];
+    
+    map.addLayer({
+        'id': 'segments-layer', 'type': 'line', 'source': 'segments-source', 'source-layer': 'segments',
+        'paint': { 'line-color': lineColorExpression, 'line-width': 3.5, 'line-opacity': 0.9 }
+    });
+
+    // --- Segment Popup and Event Listener Logic ---
+    const segmentPopup = new maplibregl.Popup({ closeButton: true, className: 'segment-popup' });
+    const clusterInfo = { 0: { letter: 'A' }, 1: { letter: 'B' }, 3: { letter: 'C' }, 2: { letter: 'D' } };
+    const highwayNames = { 'residential': 'Residential', 'tertiary': 'Tertiary', 'secondary': 'Secondary', 'unclassified': 'Unclassified', 'primary': 'Primary', 'living_street': 'Living Street', 'trunk': 'Trunk' };
+
+    function createPopupContent(properties) {
+        const clusterNumber = properties.cluster;
+        const clusterDisplay = clusterInfo[clusterNumber] ? `${clusterInfo[clusterNumber].letter}` : `${clusterNumber}`;
+        const highwayType = properties.highway;
+        const highwayDisplay = highwayNames[highwayType] || highwayType || 'N/A';
+        
+        return `
+            <div style="font-weight: bold; margin-bottom: 5px;">Segment Details</div>
+            <table class="popup-table">
+                <tr><td><strong>Cluster:</strong></td><td>${clusterDisplay}</td></tr>
+                <tr><td><strong>Road Classification:</strong></td><td>${highwayDisplay}</td></tr>
+                <tr><td><strong>Number of Lanes:</strong></td><td>${properties.lanes || 'N/A'}</td></tr>
+                <tr><td><strong>Speed Limit:</strong></td><td>${properties.maxspeed || 'N/A'}</td></tr>
+                <tr><td><strong>Special Lane Presence:</strong></td><td>${properties.HasSpecialLane ? 'Yes' : 'No'}</td></tr>
+                <tr><td><strong>Traffic Lights:</strong></td><td>${properties.highway_traffic_signals_count}</td></tr>
+                <tr><td><strong>Traffic Signs:</strong></td><td>${properties.traffic_sign_count}</td></tr>
+                <tr><td><strong>Crossings:</strong></td><td>${properties.TotalCrossingCount}</td></tr>
+            </table>
+        `;
+    }
+
+    map.on('mousemove', 'segments-layer', (e) => {
+        if ('ontouchstart' in window) return;
+        map.getCanvas().style.cursor = 'pointer';
+        segmentPopup.setLngLat(e.lngLat).setHTML(createPopupContent(e.features[0].properties)).addTo(map);
+    });
+
+    map.on('mouseleave', 'segments-layer', () => {
+        if ('ontouchstart' in window) return;
+        map.getCanvas().style.cursor = '';
+        segmentPopup.remove();
+    });
+
+    map.on('click', 'segments-layer', (e) => {
+        segmentPopup.setLngLat(e.lngLat).setHTML(createPopupContent(e.features[0].properties)).addTo(map);
+    });
+}
+
     map.on('load', function() {
-        console.log("Map style loaded. Initializing UI and data layers.");
+        console.log("Map ready. Fetching initial data...");
+        
+        Promise.all([
+            fetch('./data/city_overview.json').then(res => res.json()),
+            fetch('./data/city_statistics.json').then(res => res.json())
+        ]).then(([cities, stats]) => {
+            allCitiesData = cities;
+            allCityStats = stats;
+            
+            const citySelector = document.getElementById('city-selector');
+            cities.sort((a, b) => a.name.localeCompare(b.name)).forEach(city => {
+                const option = document.createElement('option');
+                option.value = city.id;
+                option.textContent = city.name;
+                citySelector.appendChild(option);
+            });
+            map.addSource('city-markers', { type: 'geojson', data: { type: 'FeatureCollection', features: cities.map(c => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [c.centroid_lon, c.centroid_lat] }, properties: { id: c.id, name: c.name } })) } });
+            map.addLayer({ id: 'city-markers-layer', type: 'circle', source: 'city-markers', paint: { 'circle-radius': 6, 'circle-color': '#E45A25', 'circle-stroke-color': 'white', 'circle-stroke-width': 2 } });
+        }).catch(error => console.error('Error loading initial data:', error));
+
         const citySelector = document.getElementById('city-selector');
+        const metricsPanel = document.getElementById('metrics-panel');
+        const metricsToggle = document.getElementById('metrics-toggle');
+        const metricsCloseBtn = document.getElementById('metrics-close-btn');
 
-        fetch('./data/city_overview.json')
-            .then(response => response.json())
-            .then(cities => {
-                allCitiesData = cities; // Store data for use by other functions
-                
-                cities.sort((a, b) => a.name.localeCompare(b.name));
-                
-                // Populate dropdown
-                cities.forEach(city => {
-                    const option = document.createElement('option');
-                    option.value = city.id;
-                    option.textContent = city.name;
-                    citySelector.appendChild(option);
-                });
+        citySelector.addEventListener('change', function() { loadCity(this.value); });
+        map.on('click', 'city-markers-layer', (e) => { const id = e.features[0].properties.id; citySelector.value = id; loadCity(id); });
+        
+        metricsToggle.addEventListener('click', () => { metricsPanel.classList.toggle('visible'); });
+        metricsCloseBtn.addEventListener('click', () => { metricsPanel.classList.remove('visible'); });
 
-                // Add GeoJSON source for city markers
-                map.addSource('city-markers', {
-                    type: 'geojson',
-                    data: {
-                        type: 'FeatureCollection',
-                        features: cities.map(city => ({
-                            type: 'Feature',
-                            geometry: { type: 'Point', coordinates: [city.centroid_lon, city.centroid_lat] },
-                            properties: { id: city.id, name: city.name }
-                        }))
-                    }
-                });
-
-                // Add layer to display markers
-                map.addLayer({
-                    id: 'city-markers-layer',
-                    type: 'circle',
-                    source: 'city-markers',
-                    paint: {
-                        'circle-radius': 6,
-                        'circle-color': '#E45A25',
-                        'circle-stroke-color': 'white',
-                        'circle-stroke-width': 2
-                    }
-                });
-            })
-            .catch(error => console.error('Error loading city_overview.json:', error));
-
-        // Attach event listeners
-        citySelector.addEventListener('change', function() {
-            loadCity(this.value);
-        });
-
-        map.on('click', 'city-markers-layer', (e) => {
-            const cityId = e.features[0].properties.id;
-            loadCity(cityId);
-            citySelector.value = cityId;
-        });
-
-        const cityPopup = new maplibregl.Popup({
-            closeButton: false,
-            closeOnClick: false,
-            className: 'city-hover-popup'
-        });
-
-        map.on('mouseenter', 'city-markers-layer', (e) => {
-            map.getCanvas().style.cursor = 'pointer';
-            const coordinates = e.features[0].geometry.coordinates.slice();
-            const cityName = e.features[0].properties.name;
-            cityPopup.setLngLat(coordinates).setText(cityName).addTo(map);
-        });
-
-        map.on('mouseleave', 'city-markers-layer', () => {
-            map.getCanvas().style.cursor = '';
-            cityPopup.remove();
-        });
+        const cityPopup = new maplibregl.Popup({ closeButton: false, className: 'city-hover-popup' });
+        map.on('mouseenter', 'city-markers-layer', (e) => { map.getCanvas().style.cursor = 'pointer'; cityPopup.setLngLat(e.features[0].geometry.coordinates.slice()).setText(e.features[0].properties.name).addTo(map); });
+        map.on('mouseleave', 'city-markers-layer', () => { map.getCanvas().style.cursor = ''; cityPopup.remove(); });
     });
 
     map.on('error', (e) => console.error("A map error occurred:", e));
