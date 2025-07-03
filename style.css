@@ -1,4 +1,6 @@
-body {
+/* Make sure the body and html take up the full height */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -6,9 +8,11 @@ body {
 
 #map {
     position: absolute;
-    top: 50px; /* Height of the header */
+    top: 50px;    /* Height of the header */
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 100%;
+    background-color: #333; /* Add a dark background to see the container */
 }
 
 .header {

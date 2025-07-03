@@ -1,31 +1,31 @@
 [
   {
     "id": "accra",
-    "name": "accra",
+    "name": "Accra",
     "centroid_lat": 5.59033768890433,
     "centroid_lon": -0.1870966831551662
   },
   {
     "id": "alexandria",
-    "name": "alexandria",
+    "name": "Alexandria",
     "centroid_lat": 31.027101994195558,
     "centroid_lon": 29.846154485273395
   },
   {
     "id": "algiers",
-    "name": "algiers",
+    "name": "Algiers",
     "centroid_lat": 36.71932699513313,
     "centroid_lon": 3.0598728978788623
   },
   {
     "id": "amman",
-    "name": "amman",
+    "name": "Amman",
     "centroid_lat": 31.870527304460076,
     "centroid_lon": 35.93899153600511
   },
   {
     "id": "amsterdam",
-    "name": "amsterdam",
+    "name": "Amsterdam",
     "centroid_lat": 52.37164412168454,
     "centroid_lon": 4.8780789919650145
   },
@@ -37,37 +37,37 @@
   },
   {
     "id": "auckland",
-    "name": "auckland",
+    "name": "Auckland",
     "centroid_lat": -36.83443760289183,
     "centroid_lon": 174.74285609694343
   },
   {
     "id": "baghdad",
-    "name": "baghdad",
+    "name": "Baghdad",
     "centroid_lat": 33.331273726969314,
     "centroid_lon": 44.39165077228481
   },
   {
     "id": "baku",
-    "name": "baku",
+    "name": "Baku",
     "centroid_lat": 40.42463407759094,
     "centroid_lon": 49.95127258525301
   },
   {
     "id": "bangkok",
-    "name": "bangkok",
+    "name": "Bangkok",
     "centroid_lat": 13.774260255111143,
     "centroid_lon": 100.5950600387515
   },
   {
     "id": "beijing",
-    "name": "beijing",
+    "name": "Beijing",
     "centroid_lat": 40.02226924006067,
     "centroid_lon": 116.42771670065363
   },
   {
     "id": "beirut",
-    "name": "beirut",
+    "name": "Beirut",
     "centroid_lat": 33.88720841182302,
     "centroid_lon": 35.50302085957544
   },
