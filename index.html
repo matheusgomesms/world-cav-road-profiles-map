@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-g">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>World Traffic Map</title>
+    
+    <!-- MapLibre GL JS CSS -->
+    <link href="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <!-- Your Custom CSS -->
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="header">
+        <h1>World Traffic Data</h1>
+        <select id="city-selector">
+            <option value="">-- Select a City --</option>
+        </select>
+    </header>
+
+    <div id="map"></div>
+
+    <!-- MapLibre GL JS -->
+    <script src="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.js"></script>
+    <!-- PMTiles Protocol Adapter for MapLibre -->
+    <script src="https://unpkg.com/pmtiles@3.1.0/dist/pmtiles.js"></script>
+    <!-- Your Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
