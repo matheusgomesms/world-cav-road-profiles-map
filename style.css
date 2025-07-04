@@ -208,6 +208,74 @@ html, body {
     filter: invert(100%);
 }
 
+/* In style.css */
+
+/* --- Legend Info Modal Styling --- */
+#legend-info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.7); /* Slightly more transparent */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1000; /* Higher than the about overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#legend-info-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.info-modal-content {
+    background-color: #f9f9f9; /* A light background for the modal */
+    color: #333; /* Dark text for readability */
+    padding: 25px 30px;
+    border-radius: 8px;
+    max-width: 550px;
+    width: 90%;
+    text-align: justify;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+#legend-info-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+#legend-info-close-btn:hover {
+    color: #333;
+}
+
+.info-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: #111;
+}
+
+#legend-info-text p {
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+}
+
+#legend-info-text strong {
+    color: #111;
+}
+
 .legend-key {
     display: inline-block;
     width: 15px;
@@ -400,7 +468,7 @@ html, body {
     border-radius: 8px;
     max-width: 600px;
     width: 90%;
-    text-align: left;
+    text-align: justify;
     color: #f0f0f0;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);

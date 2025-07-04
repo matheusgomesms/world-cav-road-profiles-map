@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- GLOBAL CONFIGURATION AND STATE ---
     const clusterInfo = {
-        'A': { id: 0, color: '#1a9641', description: 'Complex Signed and Moderately Signaled Nodes' },
-        'B': { id: 1, color: '#a6d96a', description: 'Signalized Secondary Corridors' },
-        'C': { id: 3, color: '#fdae61', description: 'Residential with Pedestrian Awareness' },
-        'D': { id: 2, color: '#d7191c', description: 'Minimal Road Infrastructure, Baseline Residential' }
+        'A': { id: 0, color: '#1a9641', description: 'A: Complex Signed and Moderately Signaled Nodes' },
+        'B': { id: 1, color: '#a6d96a', description: 'B: Signalized Secondary Corridors' },
+        'C': { id: 3, color: '#fdae61', description: 'C: Residential with Pedestrian Awareness' },
+        'D': { id: 2, color: '#d7191c', description: 'D: Minimal Road Infrastructure, Baseline Residential' }
     };
     const highwayNames = {
         'residential': 'Residential', 'tertiary': 'Tertiary', 'secondary': 'Secondary',
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let allCitiesData = [];
     let allCityStats = {};
     let hoveredSegmentId = null;
+    let currentCityId = null;
 
     // --- INITIALIZE MAP AND PROTOCOL ---
     let protocol = new pmtiles.Protocol();
@@ -45,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const panelContent = metricsPanel.querySelector('.panel-content');
         const clusterColors = { A: '#1a9641', B: '#a6d96a', C: '#fdae61', D: '#d7191c' };
         const globalStats = { A: 1.4, B: 5.2, C: 6.0, D: 87.4 };
-
         let barChartHTML = '';
         Object.entries(globalStats).forEach(([clusterLetter, percent]) => {
             barChartHTML += `
@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             `;
         });
-
         document.getElementById('metrics-panel-title').textContent = 'Global Overview';
         panelContent.innerHTML = `
             <div class="global-stats">
@@ -82,21 +81,12 @@ document.addEventListener('DOMContentLoaded', function () {
         metricsPanel.classList.add('visible');
     }
 
-    function loadCity(cityId) {
+    function updateCityMetrics(cityId) {
         const metricsPanel = document.getElementById('metrics-panel');
         const panelContent = metricsPanel.querySelector('.panel-content');
-
-        if (!cityId) {
-            if (map.getLayer('segments-layer')) map.removeLayer('segments-layer');
-            if (map.getSource('segments-source')) map.removeSource('segments-source');
-            showGlobalMetrics();
-            return;
-        }
-
         const cityInfo = allCitiesData.find(c => c.id === cityId);
         const cityStats = allCityStats[cityId];
         if (!cityInfo || !cityStats) return;
-
         document.getElementById('metrics-panel-title').textContent = cityInfo.name;
         let barChartHTML = '';
         Object.keys(clusterInfo).forEach(clusterLetter => {
@@ -123,25 +113,38 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
         metricsPanel.classList.add('visible');
+    }
 
-        map.flyTo({ center: [cityInfo.centroid_lon, cityInfo.centroid_lat], zoom: 12 });
+    function loadCity(cityId) {
+        currentCityId = cityId;
 
         if (map.getSource('segments-source')) {
             map.removeLayer('segments-layer');
             map.removeSource('segments-source');
         }
-        
+
+        if (!cityId) {
+            showGlobalMetrics();
+            return;
+        }
+
+        const cityInfo = allCitiesData.find(c => c.id === cityId);
+        if (!cityInfo) return;
+
+        updateCityMetrics(cityId);
+        map.flyTo({ center: [cityInfo.centroid_lon, cityInfo.centroid_lat], zoom: 12 });
+
         const pmtilesUrl = `./data/pmtiles_by_city/${cityId}.pmtiles`;
         map.addSource('segments-source', {
             type: 'vector',
             url: `pmtiles://${pmtilesUrl}`,
-            promoteId: 'id' // Essential for feature-state to work
+            promoteId: 'unique_edge_id' // Uses the ID from your data
         });
-        
+
         const lineColorExpression = ['match', ['get', 'cluster'],
             0, clusterInfo.A.color, 1, clusterInfo.B.color, 3, clusterInfo.C.color, 2, clusterInfo.D.color, '#cccccc'
         ];
-        
+
         map.addLayer({
             id: 'segments-layer',
             type: 'line',
@@ -149,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'source-layer': 'segments',
             paint: {
                 'line-color': lineColorExpression,
-                'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 6, 3.5],
+                'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 6, 3.5], // Hover effect
                 'line-opacity': 0.9
             }
         });
@@ -157,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const segmentPopup = new maplibregl.Popup({ closeButton: true, className: 'segment-popup' });
         const clusterInfoMap = { 0: 'A', 1: 'B', 3: 'C', 2: 'D' };
-
+        
         function createPopupContent(properties) {
             const clusterDisplay = clusterInfoMap[properties.cluster] || properties.cluster;
             const highwayDisplay = highwayNames[properties.highway] || properties.highway || 'N/A';
@@ -165,24 +168,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         map.on('mousemove', 'segments-layer', (e) => {
-            if ('ontouchstart' in window) return;
+            if ('ontouchstart' in window || e.features.length === 0) return;
             map.getCanvas().style.cursor = 'pointer';
-            if (e.features.length > 0) {
-                if (hoveredSegmentId !== null) map.setFeatureState({ source: 'segments-source', sourceLayer: 'segments', id: hoveredSegmentId }, { hover: false });
-                hoveredSegmentId = e.features[0].id;
-                map.setFeatureState({ source: 'segments-source', sourceLayer: 'segments', id: hoveredSegmentId }, { hover: true });
-                segmentPopup.setLngLat(e.lngLat).setHTML(createPopupContent(e.features[0].properties)).addTo(map);
+            if (hoveredSegmentId !== null) {
+                map.setFeatureState({ source: 'segments-source', sourceLayer: 'segments', id: hoveredSegmentId }, { hover: false });
             }
+            hoveredSegmentId = e.features[0].id;
+            map.setFeatureState({ source: 'segments-source', sourceLayer: 'segments', id: hoveredSegmentId }, { hover: true });
+            segmentPopup.setLngLat(e.lngLat).setHTML(createPopupContent(e.features[0].properties)).addTo(map);
         });
+
         map.on('mouseleave', 'segments-layer', () => {
             if ('ontouchstart' in window) return;
             map.getCanvas().style.cursor = '';
-            if (hoveredSegmentId !== null) map.setFeatureState({ source: 'segments-source', sourceLayer: 'segments', id: hoveredSegmentId }, { hover: false });
+            if (hoveredSegmentId !== null) {
+                map.setFeatureState({ source: 'segments-source', sourceLayer: 'segments', id: hoveredSegmentId }, { hover: false });
+            }
             hoveredSegmentId = null;
             segmentPopup.remove();
         });
+
         map.on('click', 'segments-layer', (e) => {
-            if (e.features.length > 0) segmentPopup.setLngLat(e.lngLat).setHTML(createPopupContent(e.features[0].properties)).addTo(map);
+            if (e.features.length > 0) {
+                segmentPopup.setLngLat(e.lngLat).setHTML(createPopupContent(e.features[0].properties)).addTo(map);
+            }
         });
     }
 
@@ -190,6 +199,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //  MAIN MAP LOAD AND UI SETUP
     // =====================================================================
     map.on('load', function() {
+        console.log("Map ready. Initializing UI.");
+        
+        // Get references to ALL interactive UI elements
         const citySelectorBtn = document.getElementById('city-selector-button');
         const citySelectorLabel = document.getElementById('city-selector-label');
         const cityDropdownList = document.getElementById('city-dropdown-list');
@@ -201,6 +213,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const aboutCloseBtn = document.getElementById('about-close-btn');
         const legendContainer = document.getElementById('legend-items');
         const legendInfoIcon = document.getElementById('legend-info-icon');
+        const legendInfoOverlay = document.getElementById('legend-info-overlay');
+        const legendInfoCloseBtn = document.getElementById('legend-info-close-btn');
+        const legendInfoTextDiv = document.getElementById('legend-info-text');
 
         Object.entries(clusterInfo).forEach(([letter, info]) => {
             const item = document.createElement('div');
@@ -209,22 +224,43 @@ document.addEventListener('DOMContentLoaded', function () {
             item.innerHTML = `<span class="legend-key" style="background-color: ${info.color};"></span>${info.description}`;
             item.addEventListener('click', () => {
                 visibleClusters[letter] = !visibleClusters[letter];
-                item.classList.toggle('inactive', !visibleClusters[letter]);
+                item.classList.toggle('inactive');
                 updateMapFilter();
             });
             legendContainer.appendChild(item);
         });
+
         legendInfoIcon.addEventListener('click', () => {
-            alert("This is where you would explain what each cluster means in detail.");
+            const infoHTML = `
+                <p><strong>Cluster A:</strong> High density of traffic signs and some traffic lights/crossings. Represents complex intersections requiring sophisticated perception from a CAV.</p>
+                <p><strong>Cluster B:</strong> Secondary roads defined by a consistent presence of traffic lights. These are key arterial routes providing clear, manageable rules for a CAV.</p>
+                <p><strong>Cluster C:</strong> Primarily residential areas with a notable number of marked pedestrian crossings but few traffic lights, cueing a CAV to be aware of Vulnerable Road Users (VRUs).</p>
+                <p><strong>Cluster D:</strong> The vast majority of the network, with minimal infrastructure. A CAV must rely almost entirely on its own sensors for navigation and safety.</p>
+            `;
+            legendInfoTextDiv.innerHTML = infoHTML;
+            legendInfoOverlay.classList.remove('hidden');
+        });
+        
+        // NEW: Add listeners to close the legend info modal
+        legendInfoCloseBtn.addEventListener('click', () => {
+            legendInfoOverlay.classList.add('hidden');
+        });
+        legendInfoOverlay.addEventListener('click', (e) => {
+            if (e.target === legendInfoOverlay) {
+                legendInfoOverlay.classList.add('hidden');
+            }
         });
 
         Promise.all([
             fetch('./data/city_overview.json').then(res => res.json()),
             fetch('./data/city_statistics.json').then(res => res.json())
         ]).then(([cities, stats]) => {
+            // FIX: Sort the cities array by name BEFORE assigning it
             allCitiesData = cities.sort((a, b) => a.name.localeCompare(b.name));
             allCityStats = stats;
+            console.log("Loaded and sorted city data.");
             
+            // Populate the dropdown from the now-sorted array
             allCitiesData.forEach(city => {
                 const item = document.createElement('a');
                 item.className = 'dropdown-item';
@@ -233,26 +269,38 @@ document.addEventListener('DOMContentLoaded', function () {
                 cityDropdownList.appendChild(item);
             });
             
+            // Add a 'dominant_cluster' property to each city for marker coloring
             allCitiesData.forEach(city => {
                 const cityStat = stats[city.id] || {};
                 let maxPercent = -1, dominant = 'D';
-                Object.keys(clusterInfo).forEach(c => { if ((cityStat[c] || 0) > maxPercent) { maxPercent = cityStat[c]; dominant = c; } });
+                Object.keys(clusterInfo).forEach(c => {
+                    if ((cityStat[c] || 0) > maxPercent) {
+                        maxPercent = cityStat[c];
+                        dominant = c;
+                    }
+                });
                 city.dominant_cluster = dominant;
             });
 
             const cityPointsGeoJSON = { type: 'FeatureCollection', features: allCitiesData.map(c => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [c.centroid_lon, c.centroid_lat] }, properties: { id: c.id, name: c.name, dominant_cluster: c.dominant_cluster } })) };
             map.addSource('city-markers', { type: 'geojson', data: cityPointsGeoJSON });
             map.addLayer({
-                id: 'city-markers-layer', type: 'circle', source: 'city-markers',
+                id: 'city-markers-layer',
+                type: 'circle',
+                source: 'city-markers',
                 paint: {
                     'circle-radius': 6,
                     'circle-color': ['match', ['get', 'dominant_cluster'], 'A', clusterInfo.A.color, 'B', clusterInfo.B.color, 'C', clusterInfo.C.color, 'D', clusterInfo.D.color, '#999999'],
-                    'circle-stroke-color': 'white', 'circle-stroke-width': 2
+                    'circle-stroke-color': 'white',
+                    'circle-stroke-width': 2
                 }
             });
+
         }).catch(error => console.error('Error loading initial data:', error));
 
-        citySelectorBtn.addEventListener('click', () => cityDropdownList.classList.toggle('hidden'));
+        // --- Attach all event listeners ---
+        citySelectorBtn.addEventListener('click', () => { cityDropdownList.classList.toggle('hidden'); });
+        
         cityDropdownList.addEventListener('click', (e) => {
             if (e.target.matches('.dropdown-item')) {
                 loadCity(e.target.dataset.cityId);
@@ -260,22 +308,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 cityDropdownList.classList.add('hidden');
             }
         });
-        window.addEventListener('click', (e) => { if (!e.target.closest('.city-selector-container')) cityDropdownList.classList.add('hidden'); });
 
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.city-selector-container')) {
+                cityDropdownList.classList.add('hidden');
+            }
+        });
+        
         map.on('click', 'city-markers-layer', (e) => { 
             loadCity(e.features[0].properties.id);
             citySelectorLabel.textContent = e.features[0].properties.name; 
         });
         
         metricsToggle.addEventListener('click', () => {
-            const panel = document.getElementById('metrics-panel');
-            if (panel.classList.contains('visible') && document.getElementById('metrics-panel-title').textContent !== 'Global Overview') {
-                panel.classList.remove('visible');
+            if (metricsPanel.classList.contains('visible')) {
+                metricsPanel.classList.remove('visible');
             } else {
-                showGlobalMetrics();
+                currentCityId ? updateCityMetrics(currentCityId) : showGlobalMetrics();
             }
         });
-        metricsCloseBtn.addEventListener('click', () => metricsPanel.classList.remove('visible'));
+        metricsCloseBtn.addEventListener('click', () => { metricsPanel.classList.remove('visible'); });
         
         aboutToggle.addEventListener('click', () => { aboutOverlay.classList.remove('hidden'); });
         aboutCloseBtn.addEventListener('click', () => { aboutOverlay.classList.add('hidden'); });
