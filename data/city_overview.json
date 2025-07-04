@@ -121,7 +121,7 @@
   },
   {
     "id": "buenos_aires",
-    "name": "Buenos aires",
+    "name": "Buenos Aires",
     "centroid_lat": -34.61498554925381,
     "centroid_lon": -58.45300289649293
   },
@@ -169,7 +169,7 @@
   },
   {
     "id": "ciudad_de_tunez",
-    "name": "Tuniz",
+    "name": "Tunis",
     "centroid_lat": 36.812412754663015,
     "centroid_lon": 10.187017773649673
   },

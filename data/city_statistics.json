@@ -139,7 +139,7 @@
     "D": 84.85,
     "Income Level": "High"
   },
-  "buenos aires": {
+  "buenos_aires": {
     "A": 4.24,
     "B": 38.71,
     "C": 2.27,
@@ -160,7 +160,7 @@
     "D": 66.63,
     "Income Level": "High"
   },
-  "city of cape town": {
+  "city_of_cape_town": {
     "A": 1.42,
     "B": 7.09,
     "C": 5.7,
@@ -216,7 +216,7 @@
     "D": 98.82,
     "Income Level": "Low"
   },
-  "dar es salaam": {
+  "dar_es_salaam": {
     "A": 0.17,
     "B": 0.18,
     "C": 0.07,
@@ -279,7 +279,7 @@
     "D": 58.67,
     "Income Level": "High"
   },
-  "ho chi minh city": {
+  "ho_chi_minh_city": {
     "A": 1.92,
     "B": 2.82,
     "C": 4.15,
@@ -335,7 +335,7 @@
     "D": 99.9,
     "Income Level": "Low"
   },
-  "kuala lumpur": {
+  "kuala_lumpur": {
     "A": 22.88,
     "B": 5.07,
     "C": 2.31,
@@ -349,7 +349,7 @@
     "D": 41.66,
     "Income Level": "Middle"
   },
-  "la paz": {
+  "la_paz": {
     "A": 0.6,
     "B": 2.2,
     "C": 2.42,
@@ -363,7 +363,7 @@
     "D": 99.56,
     "Income Level": "Middle"
   },
-  "provincia de lima": {
+  "provincia_de_lima": {
     "A": 1.37,
     "B": 3.51,
     "C": 1.44,
@@ -377,7 +377,7 @@
     "D": 76.32,
     "Income Level": "High"
   },
-  "los angeles": {
+  "los_angeles": {
     "A": 0.62,
     "B": 21.47,
     "C": 7.67,
@@ -419,7 +419,7 @@
     "D": 66.25,
     "Income Level": "High"
   },
-  "mexico city": {
+  "mexico_city": {
     "A": 6.7,
     "B": 5.65,
     "C": 1.21,
@@ -475,7 +475,7 @@
     "D": 99.58,
     "Income Level": "Low"
   },
-  "new york": {
+  "new_york": {
     "A": 1.28,
     "B": 37.88,
     "C": 25.06,
@@ -496,7 +496,7 @@
     "D": 68.87,
     "Income Level": "High"
   },
-  "distrito de panama": {
+  "distrito_de_panama": {
     "A": 5.14,
     "B": 2.09,
     "C": 1.27,
@@ -517,7 +517,7 @@
     "D": 48.84,
     "Income Level": "High"
   },
-  "national capital district": {
+  "national_capital_district": {
     "A": 1.96,
     "B": 0.01,
     "C": 0,
@@ -545,7 +545,7 @@
     "D": 50.42,
     "Income Level": "High"
   },
-  "riyadh governorate": {
+  "riyadh_governorate": {
     "A": 0.64,
     "B": 0.45,
     "C": 0.44,
@@ -559,14 +559,14 @@
     "D": 84.76,
     "Income Level": "High"
   },
-  "san francisco": {
+  "san_francisco": {
     "A": 5.32,
     "B": 22.45,
     "C": 33.27,
     "D": 38.96,
     "Income Level": "High"
   },
-  "san jose": {
+  "san_jose": {
     "A": 0.04,
     "B": 2.26,
     "C": 0.1,
@@ -580,7 +580,7 @@
     "D": 46.58,
     "Income Level": "High"
   },
-  "municipio de sao paulo": {
+  "municipio_de_sao_paulo": {
     "A": 8.5,
     "B": 6.36,
     "C": 4.09,
@@ -650,7 +650,7 @@
     "D": 51.03,
     "Income Level": "High"
   },
-  "ciudad de tunez": {
+  "ciudad_de_tunez": {
     "A": 0.58,
     "B": 0.38,
     "C": 0.41,
@@ -678,7 +678,7 @@
     "D": 44.1,
     "Income Level": "High"
   },
-  "wellington city": {
+  "wellington_city": {
     "A": 2.39,
     "B": 4.91,
     "C": 4.06,
