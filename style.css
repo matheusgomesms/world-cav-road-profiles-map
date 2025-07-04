@@ -204,6 +204,25 @@ html, body {
     border-radius: 3px;
 }
 
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 1; /* Fully visible by default */
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.legend-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.legend-item.inactive {
+    opacity: 0.4; /* Greyed out when inactive */
+}
+
 .popup-table {
     border-collapse: collapse;
     width: 100%;
