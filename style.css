@@ -193,6 +193,19 @@ html, body {
 
 #legend h4 {
     margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+#legend-info-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    cursor: pointer;
+    filter: invert(50%);
+}
+#legend-info-icon:hover {
+    filter: invert(100%);
 }
 
 .legend-key {
@@ -342,8 +355,6 @@ html, body {
     color: white; /* Explicitly set income level color */
 }
 
-/* In style.css */
-
 /* --- Header Button Styling --- */
 .header-button {
     background: transparent;
@@ -489,4 +500,22 @@ html, body {
 .logos a:hover img {
     opacity: 1;
     filter: none; /* Show original color on hover */
+}
+
+.global-stats {
+    padding: 20px;
+    text-align: center;
+}
+.global-stats .stat-item {
+    margin-bottom: 20px;
+}
+.global-stats .stat-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}
+.global-stats .stat-label {
+    font-size: 0.9em;
+    color: #aaa;
+    text-transform: uppercase;
 }
