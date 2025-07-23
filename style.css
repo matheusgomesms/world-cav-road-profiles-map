@@ -547,10 +547,6 @@ html, body {
     gap: 15px;
 }
 
-.credits-right {
-    /* This column will hold the logos */
-}
-
 .logos {
     display: flex;
     justify-content: flex-end; /* Align logos to the far right of their column */
