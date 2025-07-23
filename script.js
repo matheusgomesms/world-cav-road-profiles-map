@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
         map.addSource('segments-source', {
             type: 'vector',
             url: `pmtiles://${pmtilesUrl}`,
-            promoteId: 'unique_edge_id' // Uses the ID from your data
+            promoteId: 'unique_edge_id' // Uses the ID from data
         });
 
         const lineColorExpression = ['match', ['get', 'cluster'],
@@ -216,6 +216,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const legendInfoOverlay = document.getElementById('legend-info-overlay');
         const legendInfoCloseBtn = document.getElementById('legend-info-close-btn');
         const legendInfoTextDiv = document.getElementById('legend-info-text');
+        const citySearchInput = document.getElementById('city-search-input');
+        const cityListItems = document.getElementById('city-list-items');
+        const noResultsMessage = document.getElementById('no-results-message');
 
         Object.entries(clusterInfo).forEach(([letter, info]) => {
             const item = document.createElement('div');
@@ -255,18 +258,16 @@ document.addEventListener('DOMContentLoaded', function () {
             fetch('./data/city_overview.json').then(res => res.json()),
             fetch('./data/city_statistics.json').then(res => res.json())
         ]).then(([cities, stats]) => {
-            // FIX: Sort the cities array by name BEFORE assigning it
             allCitiesData = cities.sort((a, b) => a.name.localeCompare(b.name));
             allCityStats = stats;
-            console.log("Loaded and sorted city data.");
-            
-            // Populate the dropdown from the now-sorted array
+
+            // Populate the dropdown list inside its new container
             allCitiesData.forEach(city => {
                 const item = document.createElement('a');
                 item.className = 'dropdown-item';
                 item.textContent = city.name;
                 item.dataset.cityId = city.id;
-                cityDropdownList.appendChild(item);
+                cityListItems.appendChild(item);
             });
             
             // Add a 'dominant_cluster' property to each city for marker coloring
@@ -299,15 +300,43 @@ document.addEventListener('DOMContentLoaded', function () {
         }).catch(error => console.error('Error loading initial data:', error));
 
         // --- Attach all event listeners ---
-        citySelectorBtn.addEventListener('click', () => { cityDropdownList.classList.toggle('hidden'); });
-        
-        cityDropdownList.addEventListener('click', (e) => {
-            if (e.target.matches('.dropdown-item')) {
-                loadCity(e.target.dataset.cityId);
-                citySelectorLabel.textContent = e.target.textContent;
-                cityDropdownList.classList.add('hidden');
+        citySelectorBtn.addEventListener('click', () => {
+            cityDropdownList.classList.toggle('hidden');
+            if (!cityDropdownList.classList.contains('hidden')) {
+                citySearchInput.focus(); // Focus input when opening
             }
         });
+
+        cityListItems.addEventListener('click', (e) => {
+            if (e.target.matches('.dropdown-item')) {
+                const cityId = e.target.dataset.cityId;
+                const cityName = e.target.textContent;
+                citySelectorLabel.textContent = cityName;
+                cityDropdownList.classList.add('hidden');
+                loadCity(cityId);
+
+                // Reset search for next time
+                citySearchInput.value = '';
+                cityListItems.querySelectorAll('.dropdown-item').forEach(item => item.style.display = 'block');
+                noResultsMessage.classList.add('hidden');
+            }
+        });
+
+        citySearchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const items = cityListItems.querySelectorAll('.dropdown-item');
+            let matchFound = false;
+            items.forEach(item => {
+                const cityName = item.textContent.toLowerCase();
+                const isMatch = cityName.includes(searchTerm);
+                item.style.display = isMatch ? 'block' : 'none';
+                if (isMatch) matchFound = true;
+            });
+            noResultsMessage.classList.toggle('hidden', matchFound);
+        });
+
+        // Prevent click on search input from closing the dropdown
+        citySearchInput.addEventListener('click', (e) => e.stopPropagation());
 
         window.addEventListener('click', (e) => {
             if (!e.target.closest('.city-selector-container')) {
@@ -315,9 +344,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
         
-        map.on('click', 'city-markers-layer', (e) => { 
-            loadCity(e.features[0].properties.id);
-            citySelectorLabel.textContent = e.features[0].properties.name; 
+        map.on('click', 'city-markers-layer', (e) => {
+            const cityId = e.features[0].properties.id;
+            const cityName = e.features[0].properties.name;
+            citySelectorLabel.textContent = cityName;
+            loadCity(cityId);
         });
         
         metricsToggle.addEventListener('click', () => {

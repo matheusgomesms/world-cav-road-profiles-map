@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     
     <!-- Social Sharing Meta Tags -->
     <title>CAV Readiness Map</title>
@@ -26,7 +29,13 @@
                     <span id="city-selector-label">Select a City</span>
                     <span class="chevron"></span>
                 </button>
-                <div id="city-dropdown-list" class="dropdown-list hidden"></div>
+                <div id="city-dropdown-list" class="dropdown-list hidden">
+                    <input type="text" id="city-search-input" placeholder="Search for a city...">
+                    <div id="city-list-items">
+                        <!-- City links will be added here by JavaScript -->
+                    </div>
+                    <div id="no-results-message" class="hidden">No cities found</div>
+                </div>
             </div>
         </div>
         <div class="header-right">

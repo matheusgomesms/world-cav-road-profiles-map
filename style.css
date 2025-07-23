@@ -596,3 +596,32 @@ html, body {
     border-top: 1px solid #444;
     padding-top: 20px;
 }
+
+/* --- Search Input inside Dropdown --- */
+#city-search-input {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #1e1e1e;
+    border: none;
+    border-bottom: 1px solid #555;
+    color: white;
+    font-size: 1em;
+}
+
+#city-search-input:focus {
+    outline: none;
+    border-bottom: 1px solid #4ade80; /* Green accent on focus */
+}
+
+/* Container for the scrollable list items */
+
+/* "No results" message */
+#no-results-message {
+    padding: 15px;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+#no-results-message.hidden {
+    display: none;
+}
