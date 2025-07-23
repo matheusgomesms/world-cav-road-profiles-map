@@ -5,7 +5,7 @@
 
 An interactive map analyzing the infrastructure readiness of 100 cities for Connected and Autonomous Vehicles (CAVs), based on OpenStreetMap data.
 
-[► View the Live Map Here]([https://matheusgomesms.github.io/world-cav-readiness-map/])
+**[► View the Live Map Here](https://matheusgomesms.github.io/world-cav-readiness-map/)**
 
 ![Screenshot of the CAV Readiness Map](assets/social-preview.png)
 
@@ -34,7 +34,7 @@ The underlying road network data was sourced from **OpenStreetMap** and retrieve
 
 This visualization is a companion to our academic research. For a detailed explanation of the methodology, cluster definitions, and findings, please refer to our paper:
 
-[A Scalable Machine Learning Framework for Assessing Urban Infrastructure Readiness for Automated Vehicles]([https://dx.doi.org/10.2139/ssrn.5357778])
+**[A Scalable Machine Learning Framework for Assessing Urban Infrastructure Readiness for Automated Vehicles](https://dx.doi.org/10.2139/ssrn.5357778)**
 
 ### How to Cite
 
