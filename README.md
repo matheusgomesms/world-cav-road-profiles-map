@@ -1,7 +1,7 @@
 # CAV Readiness Map: A Global Analysis of Urban Road Infrastructure
 
 [![License: MIT](https://img.shields.io/badge/Code%20License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Data%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+[![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)
 
 An interactive map analyzing the infrastructure readiness of 100 cities for Connected and Autonomous Vehicles (CAVs), based on OpenStreetMap data.
 
@@ -48,7 +48,7 @@ If you use this project, its data, or its findings in your research, please cite
 This project uses a dual-license model:
 
 *   The **source code** for this web application is licensed under the **[MIT License](LICENSE_CODE)**.
-*   The **data** (`.pmtiles`, and `.json` files) is licensed under the **[Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License](LICENSE_DATA)**.
+*   The **data** (`.pmtiles`, and `.json` files) is licensed under the **[Open Data Commons Open Database License (ODbL)](LICENSE_DATA)**.
 
 ## Contact
 
