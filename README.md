@@ -1,7 +1,7 @@
 # CAV Readiness Map: A Global Analysis of Urban Road Infrastructure
 
 [![License: MIT](https://img.shields.io/badge/Code%20License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)
+[![License: ODbL](https://img.shields.io/badge/Data%20License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)
 
 An interactive map analyzing the infrastructure readiness of 100 cities for Connected and Autonomous Vehicles (CAVs), based on OpenStreetMap data.
 
