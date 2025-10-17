@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         const lineColorExpression = ['match', ['get', 'cluster'],
-            0, clusterInfo.A.color, 1, clusterInfo.B.color, 3, clusterInfo.C.color, 2, clusterInfo.D.color, '#cccccc'
+            0, clusterInfo.A.color, 1, clusterInfo.D.color, 3, clusterInfo.C.color, 2, clusterInfo.B.color, '#cccccc'
         ];
 
         map.addLayer({
