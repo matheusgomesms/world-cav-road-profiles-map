@@ -3,3 +3,5 @@
 *.csv
 *.sh
 /data/geojson_by_city
+/data/pmtiles_by_city_backup
+*.gpkg
