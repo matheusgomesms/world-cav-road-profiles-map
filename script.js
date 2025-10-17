@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- GLOBAL CONFIGURATION AND STATE ---
     const clusterInfo = {
         'A': { id: 0, color: '#1a9641', description: 'A: Complex and Densely Regulated Environments' },
-        'B': { id: 1, color: '#a6d96a', description: 'B: Signalized Secondary Corridors' },
+        'B': { id: 2, color: '#a6d96a', description: 'B: Signalized Secondary Corridors' },
         'C': { id: 3, color: '#fdae61', description: 'C: Residential with Pedestrian Awareness' },
-        'D': { id: 2, color: '#d7191c', description: 'D: Minimal Infrastructure, Sensor Reliant Roads' }
+        'D': { id: 1, color: '#d7191c', description: 'D: Minimal Infrastructure, Sensor Reliant Roads' }
     };
     const highwayNames = {
         'residential': 'Residential', 'tertiary': 'Tertiary', 'secondary': 'Secondary',
