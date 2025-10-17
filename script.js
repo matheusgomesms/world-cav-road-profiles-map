@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const metricsPanel = document.getElementById('metrics-panel');
         const panelContent = metricsPanel.querySelector('.panel-content');
         const clusterColors = { A: '#1a9641', B: '#a6d96a', C: '#fdae61', D: '#d7191c' };
-        const globalStats = { A: 1.4, B: 5.2, C: 6.0, D: 87.4 };
+        const globalStats = { A: 1.5, B: 3.5, C: 8.1, D: 86.9 };
         let barChartHTML = '';
         Object.entries(globalStats).forEach(([clusterLetter, percent]) => {
             barChartHTML += `
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateMapFilter();
 
         const segmentPopup = new maplibregl.Popup({ closeButton: true, className: 'segment-popup' });
-        const clusterInfoMap = { 0: 'A', 1: 'B', 3: 'C', 2: 'D' };
+        const clusterInfoMap = { 0: 'A', 2: 'B', 3: 'C', 1: 'D' };
         
         function createPopupContent(properties) {
             const clusterDisplay = clusterInfoMap[properties.cluster] || properties.cluster;
