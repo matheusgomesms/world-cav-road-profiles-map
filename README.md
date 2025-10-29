@@ -52,4 +52,4 @@ This project uses a dual-license model:
 
 ## Contact
 
-[Matheus Gomes Correia] – [https://www.linkedin.com/in/matheuscorreia/]
+[Anonymous] – [https://www.linkedin.com/in/username/]
