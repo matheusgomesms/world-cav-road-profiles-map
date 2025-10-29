@@ -1,22 +1,22 @@
-# CAV Readiness Map: A Global Analysis of Urban Road Infrastructure
+# CAV Road Profiles Map: A Global Typology of Urban Road Infrastructure for Automated Mobility
 
 [![License: MIT](https://img.shields.io/badge/Code%20License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![License: ODbL](https://img.shields.io/badge/Data%20License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)
 
-An interactive map analyzing the infrastructure readiness of 100 cities for Connected and Autonomous Vehicles (CAVs), based on OpenStreetMap data.
+An interactive map visualizing a data-driven typology of road infrastructure across 100 global cities, developed to support evidence-based policy for automated mobility.
 
-**[► View the Live Map Here](https://matheusgomesms.github.io/world-cav-readiness-map/)**
-
-![Screenshot of the CAV Readiness Map](assets/social-preview.png)
+![Screenshot of the CAV Road Profiles Map](assets/social-preview.png)
 
 ## About The Project
 
-This project provides a visual exploration of road infrastructure characteristics across 7 million street segments in 100 global cities. Using unsupervised machine learning, road segments were grouped into four distinct clusters (A, B, C, D) based on features critical for autonomous navigation, such as the density of traffic signs, signals, and pedestrian crossings.
+This project provides an interactive, web-based visualization of the global urban road infrastructure typology developed in our research paper, "Characterizing the Urban Road Network for Automated Mobility: A Scalable Typology for Evidence-Based Policy".
+
+Using unsupervised machine learning on data from OpenStreetMap and Mapillary, we analyzed over 7 million road segments across 100 diverse cities. This process identified four distinct infrastructure profiles, ranging from 'Complex Urban Intersections' to 'Minimal Infrastructure, Sensor-Reliant Roads'. This map allows for a visual exploration of these findings, revealing the unique "infrastructure signature" of each city.
 
 This tool is designed for urban planners, policymakers, researchers, and the public to:
-*   Visualize infrastructure patterns within and between cities.
-*   Understand the varying levels of "readiness" for autonomous vehicle deployment.
-*   Identify areas with minimal infrastructure that may pose challenges for CAVs.
+*   Explore and compare the infrastructure patterns and signatures of different cities at a global scale.
+*   Characterize the heterogeneity of road environments and understand the varying operational conditions for automated systems.
+*   Provide an evidence base for strategic investment, policy development, and academic research in the field of automated mobility.
 
 ## Key Features
 
@@ -34,13 +34,13 @@ The underlying road network data was sourced from **OpenStreetMap** and retrieve
 
 This visualization is a companion to our academic research. For a detailed explanation of the methodology, cluster definitions, and findings, please refer to our paper:
 
-**[A Scalable Machine Learning Framework for Assessing Urban Infrastructure Readiness for Automated Vehicles](https://dx.doi.org/10.2139/ssrn.5357778)**
+**Link in the future**
 
 ### How to Cite
 
 If you use this project, its data, or its findings in your research, please cite our work as follows:
 
-`Gomes Correia, Matheus and Prata, Bruno de Athayde and Ferreira, Adelino, A Scalable Machine Learning Framework for Assessing Urban Infrastructure Readiness for Automated Vehicles. Available at SSRN: http://dx.doi.org/10.2139/ssrn.5357778`
+`Citation in the future`
 
 
 ## License
