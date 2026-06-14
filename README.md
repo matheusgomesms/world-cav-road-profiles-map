@@ -36,8 +36,6 @@ This visualization is a companion to our academic research. For a detailed expla
 
 **[Characterizing the Urban Road Network for Automated Mobility: a Scalable Typology for Evidence-Based Policy](https://dx.doi.org/10.2139/ssrn.5357778)**
 
-**Link in the future**
-
 ### How to Cite
 
 If you use this project, its data, or its findings in your research, please cite our work as follows:
