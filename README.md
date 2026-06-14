@@ -34,13 +34,15 @@ The underlying road network data was sourced from **OpenStreetMap** and retrieve
 
 This visualization is a companion to our academic research. For a detailed explanation of the methodology, cluster definitions, and findings, please refer to our paper:
 
+**[Characterizing the Urban Road Network for Automated Mobility: a Scalable Typology for Evidence-Based Policy](https://dx.doi.org/10.2139/ssrn.5357778)**
+
 **Link in the future**
 
 ### How to Cite
 
 If you use this project, its data, or its findings in your research, please cite our work as follows:
 
-`Citation in the future`
+`Gomes Correia, M., de Athayde Prata, B., & Ferreira, A. (2026). Characterizing the Urban Road Network for Automated Mobility: a Scalable Typology for Evidence-Based Policy. Transportation Letters, 1–23. https://doi.org/10.1080/19427867.2026.2677591`
 
 
 ## License
@@ -52,4 +54,4 @@ This project uses a dual-license model:
 
 ## Contact
 
-[Anonymous] – [https://www.linkedin.com/in/username/]
+[Matheus Gomes Correia] – [www.linkedin.com/in/matheuscorreia]
